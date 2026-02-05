@@ -10,10 +10,24 @@ export class CartPage extends BasePage {
         await this.page.locator('#topcartlink').click();
     }
 
-    async verifySubtotal(expectedSubtotal: number) {
-        const subtotalText = await this.page.locator('.product-price.order-total').innerText();
-        const actualSubtotal = parseFloat(subtotalText.replace(/[^0-9.]/g, ''));
-        expect(actualSubtotal).toBe(expectedSubtotal);
+    async verifySubtotal() {
+        // Get all unit prices from the cart items
+        const itemPrices = await this.page.locator('.product-unit-price').allTextContents();
+        const itemQuantities = await this.page.locator('.qty-input').evaluateAll(inputs => inputs.map(input => (input as HTMLInputElement).value));
+        
+        let calculatedTotal = 0;
+        for (let i = 0; i < itemPrices.length; i++) {
+            const price = parseFloat(itemPrices[i].replace(/[^0-9.]/g, ''));
+            const qty = parseInt(itemQuantities[i]) || 1;
+            calculatedTotal += price * qty;
+        }
+
+        // Get the subtotal displayed in the summary
+        const subtotalText = await this.page.locator('.order-summary-content .product-price').first().innerText();
+        const displayedSubtotal = parseFloat(subtotalText.replace(/[^0-9.]/g, ''));
+
+        console.log(`Verifying: Calculated ${calculatedTotal} vs Displayed ${displayedSubtotal}`);
+        expect(displayedSubtotal).toBeCloseTo(calculatedTotal, 2);
     }
 
     async proceedToCheckout() {

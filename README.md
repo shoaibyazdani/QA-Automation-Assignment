@@ -60,6 +60,3 @@ CUSTOMER_FIRSTNAME=YourFirstName
 CUSTOMER_LASTNAME=YourLastName
 ...
 ```
-
-## 🐶 About Leo
-This project was developed with the assistance of **Leo**, an AI coding companion, showcasing the future of human-AI collaboration in QA engineering.

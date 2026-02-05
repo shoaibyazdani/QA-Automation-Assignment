@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "name": "Computing and Internet",
+      "category": "Books",
+      "price": 10.00
+    },
+    {
+      "name": "Fiction",
+      "category": "Books",
+      "price": 24.00
+    },
+    {
+      "name": "Health Book",
+      "category": "Books",
+      "price": 10.00
+    }
+  ],
+  "customer": {
+    "firstName": "Shoaib",
+    "lastName": "Latif",
+    "email": "test_qa@example.com",
+    "city": "Lahore",
+    "address": "123 Main St",
+    "zip": "54000",
+    "phone": "03118444302"
+  }
+}

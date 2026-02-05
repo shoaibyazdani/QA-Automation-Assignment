@@ -4,6 +4,10 @@ import { CategoryPage } from '../pages/CategoryPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 import * as testData from '../data/testData.json';
+import * as dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
 
 test.describe('Order Placement Tests', () => {
     test('Place order with multiple products and verify calculation', async ({ page }) => {
@@ -12,28 +16,35 @@ test.describe('Order Placement Tests', () => {
         const cartPage = new CartPage(page);
         const checkoutPage = new CheckoutPage(page);
 
+        // Map customer data from environment variables
+        const customer = {
+            firstName: process.env.CUSTOMER_FIRSTNAME || 'John',
+            lastName: process.env.CUSTOMER_LASTNAME || 'Doe',
+            email: process.env.CUSTOMER_EMAIL || 'test@example.com',
+            city: process.env.CUSTOMER_CITY || 'Lahore',
+            address: process.env.CUSTOMER_ADDRESS || '123 Main St',
+            zip: process.env.CUSTOMER_ZIP || '54000',
+            phone: process.env.CUSTOMER_PHONE || '03001234567'
+        };
+
         // 1. Navigate to home
         await homePage.navigateTo('https://demowebshop.tricentis.com');
 
         // 2. Add products from different categories
-        let totalPrice = 0;
         for (const product of testData.products) {
             await homePage.selectCategory(product.category);
             await categoryPage.addProductToCart(product.name);
-            totalPrice += product.price;
         }
 
-        // 3. Go to Cart and verify total price
+        // 3. Go to Cart
         await cartPage.goToCart();
-        // The total might include shipping or taxes, but for this demo shop it's usually just sum
-        // await cartPage.verifySubtotal(totalPrice); 
 
         // 4. Proceed to Checkout
         await cartPage.proceedToCheckout();
         await checkoutPage.checkoutAsGuest();
 
         // 5. Complete steps
-        await checkoutPage.fillBillingAddress(testData.customer);
+        await checkoutPage.fillBillingAddress(customer);
         await checkoutPage.selectShippingAddress();
         await checkoutPage.selectShippingMethod();
         await checkoutPage.selectPaymentMethod();

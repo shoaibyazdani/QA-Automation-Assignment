@@ -52,12 +52,14 @@ npx playwright show-report reports/html
 2. Run the collection.
 
 ## 🔐 Environment Variables
-The project is configured to use `dotenv`. You can create a `.env` file in the root to store sensitive data like credentials:
+The project uses `dotenv` to avoid storing personal data in the code. 
+1. Create a `.env` file in the root directory.
+2. Copy the content from `.env.example` and fill in your details.
 ```env
-DEMO_USER=test_qa@example.com
-DEMO_PASS=Password123
+CUSTOMER_FIRSTNAME=YourFirstName
+CUSTOMER_LASTNAME=YourLastName
+...
 ```
-*Note: Credentials are currently fetched from `data/testData.json` for the purpose of this assignment demo.*
 
 ## 🐶 About Leo
 This project was developed with the assistance of **Leo**, an AI coding companion, showcasing the future of human-AI collaboration in QA engineering.

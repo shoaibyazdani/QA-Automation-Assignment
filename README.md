@@ -8,7 +8,7 @@ This repository contains a comprehensive UI and API automation suite for the Dem
 - `pages/`: Page Object Models for UI screens.
 - `data/`: External test data (JSON).
 - `postman/`: Postman Collection for API tests.
-- `manual/`: Manual test cases in DOCX format.
+- `manual/`: Manual test cases in Excel (XLSX) format.
 - `performance/`: Performance test design document.
 - `docs/`: AI Acceleration demonstration document.
 - `reports/`: HTML reports generated after execution.

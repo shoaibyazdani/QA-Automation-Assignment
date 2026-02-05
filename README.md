@@ -1,7 +1,7 @@
 # Senior QA Automation Assignment - Demo Web Shop
 
 ## 🚀 Project Overview
-This repository contains a comprehensive UI and API automation suite for the Demo Web Shop. Built with **Playwright (TS/JS)** and **Postman**, it follows the Page Object Model (POM) pattern for scalability and maintainability.
+This repository contains a comprehensive UI and API automation suite for the Demo Web Shop. Built with **Playwright (TypeScript)** and **Postman**, it follows the Page Object Model (POM) pattern for scalability and maintainability.
 
 ## 📁 Repository Structure
 - `tests/`: UI Automation scripts using Playwright.

@@ -18,9 +18,9 @@ const testCases = [
     },
     {
         "Test Case ID": "TC_003",
-        "Scenario": "Verify Cart Subtotal Calculation",
-        "Steps": "1. Add 'Computing and Internet' ($10) to cart\n2. Add 'Fiction' ($24) to cart\n3. Navigate to Shopping Cart",
-        "Expected Result": "Cart shows 2 items. Subtotal displays exactly $34.00.",
+        "Scenario": "Verify Cart Subtotal Calculation with Multiple Categories",
+        "Steps": "1. Add 'Computing and Internet' (Books) to cart\n2. Add 'Blue Jeans' (Apparel & Shoes) to cart\n3. Add 'Black & White Diamond Heart' (Jewelry) to cart\n4. Navigate to Shopping Cart",
+        "Expected Result": "Cart shows 3 items from different categories. Subtotal displays exactly $141.00 (10 + 1 + 130).",
         "Priority": "High"
     },
     {

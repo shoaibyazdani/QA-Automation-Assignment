@@ -1,62 +1,41 @@
-# Senior QA Automation Assignment - Demo Web Shop
+# QA Automation Assignment - Demo Web Shop
 
 ## 🚀 Project Overview
-This repository contains a comprehensive UI and API automation suite for the Demo Web Shop. Built with **Playwright (TypeScript)** and **Postman**, it follows the Page Object Model (POM) pattern for scalability and maintainability.
+This repository contains a comprehensive UI, API, and Performance testing suite for the Demo Web Shop. The project is structured for maximum clarity and separation of concerns.
 
 ## 📁 Repository Structure
-- `tests/`: UI Automation scripts using Playwright.
-- `pages/`: Page Object Models for UI screens.
-- `data/`: External test data (JSON).
-- `postman/`: Postman Collection for API tests.
-- `manual/`: Manual test cases in Excel (XLSX) format.
-- `performance/`: Performance test design document.
-- `docs/`: AI Acceleration demonstration document.
-- `reports/`: HTML reports generated after execution.
+- **`ui-playwright-tests/`**: UI Automation suite using Playwright (TypeScript).
+  - `pages/`: Page Object Models (POM).
+  - `tests/`: Test specifications.
+  - `test-data/`: External JSON data for parameterized testing.
+  - `reports/`: Execution reports and artifacts.
+- **`api-postman/`**: API testing collection for Postman.
+- **`manual-testcases/`**: Structured manual E2E scenarios in Excel format.
+- **`performance-test-design/`**: Strategic design document for load and stress testing.
+- **`demo_execution.mp4`**: Video demonstration of the automated UI suite.
 
-## 🛠️ Setup Instructions
+## 🛠️ Setup & Execution
 
-### Prerequisites
-- Node.js (v18 or higher)
-- npm (v9 or higher)
-
-### Installation
-1. Clone the repository:
+### UI Automation (Playwright)
+1. Navigate to the UI directory:
    ```bash
-   git clone https://github.com/shoaibyazdani/QA-Automation-Assignment.git
-   cd QA-Automation-Assignment
+   cd ui-playwright-tests
    ```
 2. Install dependencies:
    ```bash
    npm install
    ```
-3. Install Playwright browsers:
+3. Run tests:
    ```bash
-   npx playwright install chromium
+   npx playwright test
    ```
 
-## 🧪 Running Tests
+### API Testing (Postman)
+1. Import `api-postman/PetStore_Collection.json` into Postman.
+2. Run the collection against the target environment.
 
-### UI Tests
-To run all UI tests and generate a report:
-```bash
-npx playwright test
-```
+### Manual Test Cases
+- Open `manual-testcases/DemoWebShop_TestCases.xlsx` to review the E2E test scenarios.
 
-To view the report:
-```bash
-npx playwright show-report reports/html
-```
-
-### API Tests
-1. Import the file inside `postman/Petstore_API_Tests.postman_collection.json` into Postman.
-2. Run the collection.
-
-## 🔐 Environment Variables
-The project uses `dotenv` to avoid storing personal data in the code. 
-1. Create a `.env` file in the root directory.
-2. Copy the content from `.env.example` and fill in your details.
-```env
-CUSTOMER_FIRSTNAME=YourFirstName
-CUSTOMER_LASTNAME=YourLastName
-...
-```
+## 🤖 AI Acceleration
+I have included documentation on how AI tools were utilized to accelerate boilerplate generation and test data creation while maintaining high standards for code quality.

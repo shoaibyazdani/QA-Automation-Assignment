@@ -3,7 +3,7 @@ import { HomePage } from '../pages/HomePage';
 import { CategoryPage } from '../pages/CategoryPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
-import * as testData from '../data/testData.json';
+import * as testData from '../test-data/testData.json';
 import * as dotenv from 'dotenv';
 
 // Load environment variables for sensitive customer data
